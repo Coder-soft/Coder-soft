@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+    background-color: #0f0f0f;
+    color: #00ff00;
+    font-family: 'Share Tech Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1.glitch {
+    font-size: 12rem;
+    position: relative;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 20px #00ff00;
+    animation: glitch 2s infinite;
+}
+
+h1.glitch::before, h1.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #0f0f0f;
+    background: #00ff00;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch-animation 2s infinite linear alternate-reverse;
+}
+
+h1.glitch::after {
+    color: #00ff00;
+    text-shadow: none;
+    animation: glitch-animation 1.5s infinite linear alternate-reverse;
+}
+
+.glitch-text {
+    font-size: 2rem;
+    color: #00ff00;
+    animation: glitch-text 3s infinite;
+}
+
+.description {
+    margin: 1rem 0;
+    color: #00ff00;
+    font-size: 1.2rem;
+}
+
+.home-button {
+    background-color: #00ff00;
+    color: #0f0f0f;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.home-button:hover {
+    background-color: #0f0f0f;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+@keyframes glitch {
+    0% {
+        transform: skew(0deg);
+    }
+    25% {
+        transform: skew(1deg, -1deg);
+    }
+    50% {
+        transform: skew(1deg, 1deg);
+    }
+    75% {
+        transform: skew(-1deg, -1deg);
+    }
+    100% {
+        transform: skew(0deg);
+    }
+}
+
+@keyframes glitch-animation {
+    0% {
+        clip: rect(44px, 9999px, 56px, 0);
+    }
+    5% {
+        clip: rect(29px, 9999px, 50px, 0);
+    }
+    10% {
+        clip: rect(90px, 9999px, 32px, 0);
+    }
+    15% {
+        clip: rect(85px, 9999px, 100px, 0);
+    }
+    20% {
+        clip: rect(45px, 9999px, 10px, 0);
+    }
+    25% {
+        clip: rect(35px, 9999px, 65px, 0);
+    }
+    30% {
+        clip: rect(20px, 9999px, 40px, 0);
+    }
+    35% {
+        clip: rect(25px, 9999px, 60px, 0);
+    }
+    40% {
+        clip: rect(15px, 9999px, 40px, 0);
+    }
+    45% {
+        clip: rect(30px, 9999px, 55px, 0);
+    }
+    50% {
+        clip: rect(45px, 9999px, 50px, 0);
+    }
+}
+
+@keyframes glitch-text {
+    0% {
+        text-shadow: 2px 0px red, -2px 0px blue;
+    }
+    50% {
+        text-shadow: -2px 0px red, 2px 0px blue;
+    }
+    100% {
+        text-shadow: 2px 0px red, -2px 0px blue;
+    }
+}
+
+.terminal {
+    margin-top: 40px;
+}
+
+.terminal p {
+    font-size: 1.5rem;
+    color: #00ff00;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.5rem;
+    background-color: #00ff00;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
