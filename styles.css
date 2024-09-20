@@ -264,6 +264,88 @@ body {
 .link:hover {
     transform: translateY(-2px);
 }
+
+
+.terminal {
+    background-color: #111;
+    color: #00FF00;
+    font-family: 'Consolas', monospace;
+    padding: 0px;
+    /*border: 2px solid #00FF00;*/
+}
+
+.glitch {
+    position: relative;
+    font-size: 2em;
+    letter-spacing: 0.1em;
+    /* Add glitch animation here */
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid #00FF00;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+.quest-list {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.quest-list li::before {
+    content: ">";
+    margin-right: 10px;
+    color: #00FF00;
+}
+
+.minecraft-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pixelated {
+    background-color: #3dff02;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    image-rendering: pixelated;
+    transition: all 0.1s ease;
+}
+
+.pixelated:hover {
+    background-color: #fbe51b;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 #000;
+}
+
+.pixelated:active {
+    background-color: #5aff0e;
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.minecraft-font {
+    font-family: 'Minecraft', sans-serif;
+    color: white;
+    text-shadow: 2px 2px #3F3F3F;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00FF00 }
+}
 footer {
     text-align: center;
     padding: 20px;
