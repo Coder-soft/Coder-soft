@@ -3,141 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coder-Soft</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicons/site.webmanifest">
+    <title>G-captcha</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .captcha-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #captcha-canvas {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        #copyright {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+        #session-info {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 5px 10px;
+            background-color: #333;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-
-    <div class="header">
-        <h1>Coder-Soft</h1>
-        <div class="status-section">
-            <h2 id="current-status">A Journey for Making Things Free.</h2>
-            <p class="status-text">The Art of Privacy.</p>
-        </div>
+    <div id="session-info">Session: Not active</div>
+    <div class="captcha-container">
+        <h1>G-captcha CAPTCHA</h1>
+        <canvas id="captcha-canvas" width="200" height="100"></canvas>
+        <input type="text" id="captcha-input" placeholder="Enter CAPTCHA">
+        <button onclick="verifyCaptcha()">Verify</button>
+        <button onclick="generateCaptcha()">New CAPTCHA</button>
+        <p id="result"></p>
     </div>
+    <div id="copyright">Copyright © Coder-soft</div>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <h2>About Me</h2>
-        <p>
-            I’m a <a herf="#" class="green-strong"><strong>Coder-Soft</strong></a>, and I’m here because your privacy actually matters. Unlike big companies like <a herf="#" class="green-strong"><strong>Google</strong></a>, which makes around <a href="https://www.tampabay.com/news/2021/05/07/google-selling-users-personal-data-despite-promise-federal-court-lawsuit-claims/" target="_blank" class="green-strong"><strong>~$147 billion</strong></a> selling your data, or <a herf="#" class="green-strong"><strong>Facebook, with about $11.9 billion from the same</strong></a>, I believe in a different approach. My goal is to create secure alternatives that truly respect your privacy. We might not be as huge as those corporations, but what we offer is real—<a herf="" class="green-strong"><strong>privacy you can trust.</strong></a>
-        </p>
-    </section>
+    <script>
+        let captchaText = '';
 
-<section class="skills-section">
-    <h2>Skills Progress</h2>
-    <div class="skill">
-        <p>Python</p>
-        <div class="progress-bar">
-            <div class="progress" style="width: 15%;"></div>
-        </div>
-    </div>
-    <div class="skill">
-        <p>HTML</p>
-        <div class="progress-bar">
-            <div class="progress" style="width: 66%;"></div>
-        </div>
-    </div>
-    <div class="skill">
-        <p>Linux Server/Hacking</p>
-        <div class="progress-bar">
-            <div class="progress" style="width: 40%;"></div>
-        </div>
-    </div>
-</section>
-    <!-- Projects Section -->
-    <section class="projects-section">
-        <h2>Projects</h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <img src="assets/project_assets/rune.png" alt="Project 1 Logo" class="project-logo">
-                <h3>Rune AI</h3>
-                <p>AI that can Interact with your system <a class="link"> (Paused)</a>.</p>
-                <a href="https://runeai.pages.dev" target="_blank">
-                    <button class="button">Open</button>
-                  </a>
-                  
-            </div>
-            <div class="project-card">
-                <img src="assets/project_assets/Host-it.png" alt="Project 2 Logo" class="project-logo">
-                <h3>Host-IT(WIP)</h3>
-                <p>Host Static Websites For Free(Forever) This Project Might Take Some Time(Long).</p>
-                <a href="https://nova-barracuda-b6e.notion.site/Host-it-by-RuneORG-AI-013421f8e62145da90ee774c794bdd75" target="_blank">
-                    <button class="button">Open Article!</button>
-                  </a>
-            </div>
-            <div class="project-card">
-                <img src="assets/project_assets/GYS.png" alt="Project 2 Logo" class="project-logo">
-                <h3>Get Yourself Secure (Article)</h3>
-                <p>Internet is Not a Safe place. Get yourself secure Right NOW!</p>
-                <a href="https://nova-barracuda-b6e.notion.site/Get-Yourself-Secure-40c26903dac44b78a036e7fc0d3b6a86#7ddb9d4399fa459080d0db6b837a69fa" target="_blank">
-                    <button class="button">Open Article!</button>
-                  </a>
-                </div>
-                <div class="project-card">
-                    <img src="assets/project_assets/G-captcha.png" alt="Project 2 Logo" class="project-logo">
-                    <h3>G-captcha</h3>
-                    <p>G-captcha, a beatiful simplified captcha, Free & Easy Captcha, An Open Source Project.</p>
-                    <a href="https://gcaptcha.pages.dev" target="_blank">
-                        <button class="button">Source Code</button>
-                      </a>      
-            </div>
-        </div>
-    </section>
-<section class="testimonial-section">
-    <h2>Thanks! to:</h2>
-    <div class="testimonial-container">
-        <div class="testimonial-card">
-            <img src="assets/mr_gacuale.gif" alt="Client 1" class="client-image">
-            <h3 class="client-name">Mr_Gacuale</h3>
-            <p class="testimonial-text">"His Projects Are Awsome, Keep It up!"</p>
+        function generateCaptcha() {
+            const canvas = document.getElementById('captcha-canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        </div>
-        <div class="testimonial-card">
-            <img src="assets/black-rock.jfif" alt="Client 2" class="client-image">
-            <h3 class="client-name">Black Rockii!</h3>
-            <p class="testimonial-text">"After reading <a herf="https://nova-barracuda-b6e.notion.site/Get-Yourself-Secure-40c26903dac44b78a036e7fc0d3b6a86#7ddb9d4399fa459080d0db6b837a69fa" class="link"> Get Yourself Secure</a>article, I realized how uniformed I had been!"</p>
+            captchaText = Math.random().toString(36).substring(2, 8).toUpperCase();
 
-        </div>
-        <div class="testimonial-card">
-            <img src="assets/Jimmy.jfif" alt="Client 3" class="client-image">
-            <h3 class="client-name"> Jimmy </h3>
-            <p class="testimonial-text">"Waiting For Host-it...Cool Projects and Articles Done By Him."</p>
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, "#f0f0f0");
+            gradient.addColorStop(1, "#e0e0e0");
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        </div>
-    </div>
-</section>
-<section class="contact-section terminal">
-    <h2 class="glitch" data-text="Access Template?">Access Template?</h2>
-    <div class="contact-content">
-        <p class="typewriter">
-            [ROOT]:To unlock this portfolio template, complete the following Tasks:
-        </p>
-        <ul class="quest-list">
-            <li>Join the Eternal BoxPvP server (our trusted ally/Parter)</li>
-            <li>Participate in the exclusive event</li>
-            <li>Claim your FREE template access files</li>
-        </ul>
-        <div class="minecraft-button">
-            <a href="https://discord.gg/B3GWZbGSeF" target="_blank" rel="noopener noreferrer">
-                <button class="pixelated">
-                    <span class="minecraft-font">&lt;/&gt; Join Discord Server</span>
-                </button>
-            </a>
-        </div>
-    </div>
-</section>
+            // Draw wavy text
+            ctx.font = 'bold 30px Arial';
+            ctx.fillStyle = '#333';
+            ctx.textBaseline = 'middle';
+            for (let i = 0; i < captchaText.length; i++) {
+                ctx.save();
+                ctx.translate(30 + i * 25, 50 + Math.sin(i * 0.5) * 5);
+                ctx.rotate((Math.random() - 0.5) * 0.4);
+                ctx.fillText(captchaText[i], 0, 0);
+                ctx.restore();
+            }
 
-</section>
+            // Add noise
+            for (let i = 0; i < 100; i++) {
+                ctx.fillStyle = `rgba(0, 0, 0, ${Math.random() * 0.1})`;
+                ctx.beginPath();
+                ctx.arc(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 2, 0, Math.PI * 2);
+                ctx.fill();
+            }
 
-    <footer>
-        <p>&copy; 2024 Hacker Portfolio - By <a href="#" class="link">Coder-soft</a></p>
-    </footer>
+            // Add lines
+            ctx.strokeStyle = '#888';
+            ctx.lineWidth = 1;
+            for (let i = 0; i < 4; i++) {
+                ctx.beginPath();
+                ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+                ctx.bezierCurveTo(
+                    Math.random() * canvas.width, Math.random() * canvas.height,
+                    Math.random() * canvas.width, Math.random() * canvas.height,
+                    Math.random() * canvas.width, Math.random() * canvas.height
+                );
+                ctx.stroke();
+            }
 
-    <script src="script.js"></script>
+            document.getElementById('captcha-input').value = '';
+            document.getElementById('result').textContent = '';
+        }
+
+        function verifyCaptcha() {
+            const userInput = document.getElementById('captcha-input').value.toUpperCase();
+            const resultElement = document.getElementById('result');
+
+            if (userInput === captchaText) {
+                resultElement.textContent = 'CAPTCHA verified successfully! Redirecting Hold UP...';
+                resultElement.style.color = 'green';
+                
+                // Set session
+                setSession();
+
+                setTimeout(() => {
+                    redirectToDestination();
+                }, 2000);
+            } else {
+                resultElement.textContent = 'CAPTCHA verification failed. Please try again.';
+                resultElement.style.color = 'red';
+                generateCaptcha();
+            }
+        }
+
+        function setSession() {
+            const expirationTime = new Date().getTime() + (30 * 60 * 1000); // 30 minutes from now
+            localStorage.setItem('captchaSession', expirationTime);
+            updateSessionInfo();
+        }
+
+        function checkSession() {
+            const sessionExpiration = localStorage.getItem('captchaSession');
+            if (sessionExpiration && new Date().getTime() < parseInt(sessionExpiration)) {
+                return true;
+            }
+            localStorage.removeItem('captchaSession');
+            return false;
+        }
+
+        function updateSessionInfo() {
+            const sessionInfo = document.getElementById('session-info');
+            if (checkSession()) {
+                const expirationTime = new Date(parseInt(localStorage.getItem('captchaSession')));
+                sessionInfo.textContent = `Session active until: ${expirationTime.toLocaleTimeString()}`;
+                sessionInfo.style.backgroundColor = '#4CAF50';
+            } else {
+                sessionInfo.textContent = 'Session: Not active';
+                sessionInfo.style.backgroundColor = '#333';
+            }
+        }
+
+        function redirectToDestination() {
+            window.location.href = 'home.html'; 
+        }
+
+        function initialize() {
+            if (checkSession()) {
+                redirectToDestination();
+            } else {
+                generateCaptcha();
+            }
+            updateSessionInfo();
+        }
+
+        window.onload = initialize;
+        setInterval(updateSessionInfo, 60000); // Update session info every minute
+    </script>
 </body>
 </html>
