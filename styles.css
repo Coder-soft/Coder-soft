@@ -204,6 +204,7 @@ body {
   border: 2px solid #00ff00;
   border-radius: 8px;
   cursor: pointer;
+  margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.3s ease;
