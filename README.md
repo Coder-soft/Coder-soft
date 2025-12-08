@@ -1,12 +1,1 @@
-- 👋 Hi, I’m @Coder-soft
-- 👀 I’m interested in FREE THINGS
-- 🌱 I’m currently learning Python,HTML.CSS,JS
-- 💞️ I’m looking to collaborate on MINECRAFT SERVER
-- 📫 How to reach me DISCORD ACC youwasted
-- 😄 Pronouns: HE/HIM
-- ⚡ Fun fact: IDH A FUN FACT
-
-<!---
-Coder-soft/Coder-soft is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+Hi, I'm Coda Soft. I am a self-taught developer and I work on classy things that provide people support and developers ease of use to provide their consumers nice products. I make free projects which are one of my biggest motives to provide free projects and make the world better and bigger. I provide free opinions too. I am a network specialist and a developer who is working to provide free modules to make programming easier in specific ways. At the start of my career I made a content creator based application which was named after COW, full form "Creator on Wheels". I then worked on it for one year and then I got a team, basically a team of volunteers, which we then further made that Kao into something much better and re-branded it to Render Dragon. Now Render Dragon has more than 12K monthly active users and has a lot of user base and assets to help content creators for free so they can be what they want to be. A part-time developer in Exendium. Founder of RenderDragon living in Dept
